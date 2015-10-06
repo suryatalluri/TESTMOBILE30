@@ -24,14 +24,14 @@ public class FileController {
     @Autowired
     private FileService fileService;
 
-    @RequestMapping(value = "/downloadFile", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-    public DownloadResponse getDownloadFile(@RequestParam(value = "file", required = false) String file, @RequestParam(value = "returnName", required = false) String returnName) throws Exception {
-        return fileService.getDownloadFile(file, returnName);
-    }
-
     @RequestMapping(value = "/downloadFileAsInline", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public DownloadResponse getDownloadFileAsInline(@RequestParam(value = "file", required = false) String file, @RequestParam(value = "returnName", required = false) String returnName) throws Exception {
         return fileService.getDownloadFileAsInline(file, returnName);
+    }
+
+    @RequestMapping(value = "/downloadFile", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+    public DownloadResponse getDownloadFile(@RequestParam(value = "file", required = false) String file, @RequestParam(value = "returnName", required = false) String returnName) throws Exception {
+        return fileService.getDownloadFile(file, returnName);
     }
 
     @RequestMapping(value = "/file", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.DELETE)
